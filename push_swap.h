@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/23 18:46:07 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/23 22:42:37 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,24 @@ typedef struct s_pushswap
 }						t_pushswap;
 
 t_pushswap		*ft_ini(int argn, char *argc[]);
-t_stack			*ft_stackadd(t_stack *A, int nb);
-t_pushswap		*ft_dt_ini();
-
+t_stack			*ft_stack_add(t_stack *A, int nb);
+t_pushswap		*ft_ini_dt();
+void			test_print_stacks(t_pushswap *dt);
+int				ft_ini_A(int argn, char *argc[], t_pushswap *dt);
+int				ft_ini_inputcheck(t_pushswap *dt);
+void			ft_ini_index(t_pushswap *dt);
+void			ft_ini_phase1(t_pushswap *dt);
+void			ft_stack_pa(t_pushswap *dt);
+void			ft_stack_pb(t_pushswap *dt);
+void			ft_stack_ra(t_pushswap *dt);
+void			ft_stack_rb(t_pushswap *dt);
+void			ft_stack_rr(t_pushswap *dt);
+void			ft_stack_rra(t_pushswap *dt);
+void			ft_stack_rrb(t_pushswap *dt);
+void			ft_stack_rrr(t_pushswap *dt);
+void			ft_stack_sa(t_pushswap *dt);
+void			ft_stack_sb(t_pushswap *dt);
+void			ft_stack_ss(t_pushswap *dt);
 #endif
 
 
@@ -45,11 +60,7 @@ t_pushswap		*ft_dt_ini();
 /*
 
 ToDo:
-- input gather
-- A stack ini
-- input -> stack A
 - stack phase 1 mv calculation
-- pushswap max, min, len
 - phase1_id
 - B stack ini
 - stack operations
