@@ -6,19 +6,20 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/18 18:44:58 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:46:07 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
+
 typedef struct s_stack
 {
 	int					nb;
 	int					id;
 	int					mv;
-	struct s_stack		*prv;
 	struct s_stack		*nxt;
 }						t_stack;
 
@@ -30,7 +31,12 @@ typedef struct s_pushswap
 	int					len;
 	t_stack				*A;
 	t_stack				*B;
+	char				*cmd;
 }						t_pushswap;
+
+t_pushswap		*ft_ini(int argn, char *argc[]);
+t_stack			*ft_stackadd(t_stack *A, int nb);
+t_pushswap		*ft_dt_ini();
 
 #endif
 
