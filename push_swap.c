@@ -6,12 +6,11 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:06:31 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 18:53:17 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/26 22:18:20 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
 
 int main(int argn, char *argc[])
 {
@@ -24,9 +23,9 @@ int main(int argn, char *argc[])
 	// ft_phase2(&dt);
 	// ft_phase3(&dt);
 	// ft_result(&dt);
-	test_print_stacks(dt);
+	test(dt);
 	// ft_cleanup(&dt);
-	return (0);
+	return (1);
 }
 
 t_pushswap *ft_ini(int argn, char *argc[])
@@ -42,31 +41,65 @@ t_pushswap *ft_ini(int argn, char *argc[])
 		return (NULL);
 	ft_ini_dtdata(dt);
 	ft_ini_id(dt);
-	// ft_ini_phase1(dt);
+	ft_ini_ph1(dt);
 	return (dt);
 }
 
-/*
-void ft_ini_phase1(t_pushswap *dt)
-{
-	
-	ToDo:
-	- find phase 1 id (assign number of the sorted elements to mv, then find the biggest mv, assign to dt phase1_id)
-	
-}
-
-void ft_stack_pa(t_pushswap *dt)
-{
-	
-}
 void ft_stack_pb(t_pushswap *dt)
 {
-	
+	t_stack			*tmp;
+	t_stack			*last;
+
+	tmp = dt->A->nxt;
+	dt->A->nxt = dt->B;
+	dt->B = dt->A;
+	dt->A = tmp;
+	last = dt->A;
+	while (last->nxt != dt->B)
+		last = last->nxt;
+	last->nxt = dt->A;
+	write(1, "pb\n", 3);
+}
+void ft_stack_pa(t_pushswap *dt)
+{
+	t_stack			*tmp;
+	t_stack			*last;
+
+	tmp = dt->B->nxt;
+	dt->B->nxt = dt->A;
+	dt->A = dt->B;
+	dt->B = tmp;
+	last = dt->B;
+	if (last)
+	{
+		while (last->nxt != dt->A)
+			last = last->nxt;
+		last->nxt = dt->B;
+	}
+	last = dt->A;
+	if (last)
+	{
+		while (last->nxt != dt->A->nxt)
+			last = last->nxt;
+		last->nxt = dt->A;
+	}
+	write(1, "pa\n", 3);
 }
 void ft_stack_ra(t_pushswap *dt)
 {
-	
+	t_stack			*tmp;
+	t_stack			*last;
+
+	tmp = dt->A;
+	dt->A = dt->A->nxt;
+	last = dt->A;
+	while (last->nxt != dt->A)
+		last = last->nxt;
+	last->nxt = tmp;
+	tmp->nxt = dt->A;
+	write(1, "ra\n", 3);
 }
+/*
 void ft_stack_rb(t_pushswap *dt)
 {
 	

@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 18:41:38 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/26 20:44:12 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_pushswap
 {
 	int					max;
 	int					min;
-	int					phase1_id;
+	int					ph1;
 	int					len;
 	t_stack				*A;
 	t_stack				*B;
@@ -37,7 +37,7 @@ typedef struct s_pushswap
 t_pushswap		*ft_ini(int argn, char *argc[]);
 t_stack			*ft_stack_add(t_stack *A, int nb);
 t_pushswap		*ft_ini_dt();
-void			test_print_stacks(t_pushswap *dt);
+void			test_input(t_pushswap *dt);
 int				ft_ini_A(int argn, char *argc[], t_pushswap *dt);
 int				ft_ini_inputcheck(t_pushswap *dt);
 t_stack			*ft_stack_ini(int nb, t_pushswap *dt);
@@ -45,10 +45,13 @@ void			ft_ini_id(t_pushswap *dt);
 void			ft_ini_dtdata(t_pushswap *dt);
 int				ft_ini_id_index(t_stack *temp, t_pushswap *dt);
 void			ft_stackiter(t_stack *start, t_stack *end, void (*f)(void *));
-// void			ft_ini_phase1(t_pushswap *dt);
-// void			ft_stack_pa(t_pushswap *dt);
-// void			ft_stack_pb(t_pushswap *dt);
-// void			ft_stack_ra(t_pushswap *dt);
+void			ft_ini_ph1(t_pushswap *dt);
+void			ft_ini_ph1_id(t_pushswap *dt);
+void			test(t_pushswap *dt);
+void			test_stacks(t_pushswap *dt);
+void			ft_stack_pa(t_pushswap *dt);
+void			ft_stack_pb(t_pushswap *dt);
+void			ft_stack_ra(t_pushswap *dt);
 // void			ft_stack_rb(t_pushswap *dt);
 // void			ft_stack_rr(t_pushswap *dt);
 // void			ft_stack_rra(t_pushswap *dt);

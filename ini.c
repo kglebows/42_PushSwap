@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:51:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 18:53:11 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:35:50 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,50 @@ int ft_ini_id_index(t_stack *temp, t_pushswap *dt)
 	if (tmp->nb < temp->nb)
 		index++;
 	return (index);
+}
+
+void ft_ini_ph1(t_pushswap *dt)
+{
+	t_stack		*temp;
+	t_stack		*tmp;
+	int			top;
+	int			mv;
+
+	temp = dt->A;
+	while (temp->nxt != dt->A)
+	{
+		mv = 1;
+		top = temp->id;
+		tmp = temp;
+		while (tmp->nxt != dt->A)
+		{
+			tmp = tmp->nxt;
+			if (top < tmp->id)
+			{
+				mv++;
+				top = tmp->id;
+			}
+		}
+		temp->mv = mv;
+		temp = temp->nxt;
+	}
+	ft_ini_ph1_id(dt);
+}
+
+void ft_ini_ph1_id(t_pushswap *dt)
+{
+	t_stack		*tmp;
+	int			ph1;
+
+	ph1 = 0;
+	tmp = dt->A;
+	while (tmp->nxt != dt->A)
+	{
+		if (tmp->mv > ph1)
+		{
+			ph1 = tmp->mv;
+			dt->ph1 = tmp->id;
+		}
+		tmp = tmp->nxt;
+	}
 }

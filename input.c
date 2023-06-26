@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 18:51:11 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/26 19:35:34 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_pushswap *ft_ini_dt()
 	dt->len = 0;
 	dt->max = 0;
 	dt->min = 0;
-	dt->phase1_id = 0;
+	dt->ph1 = 0;
 	return(dt);
 }
 
