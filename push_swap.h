@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/23 22:42:37 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/26 18:41:38 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,23 @@ t_pushswap		*ft_ini_dt();
 void			test_print_stacks(t_pushswap *dt);
 int				ft_ini_A(int argn, char *argc[], t_pushswap *dt);
 int				ft_ini_inputcheck(t_pushswap *dt);
-void			ft_ini_index(t_pushswap *dt);
-void			ft_ini_phase1(t_pushswap *dt);
-void			ft_stack_pa(t_pushswap *dt);
-void			ft_stack_pb(t_pushswap *dt);
-void			ft_stack_ra(t_pushswap *dt);
-void			ft_stack_rb(t_pushswap *dt);
-void			ft_stack_rr(t_pushswap *dt);
-void			ft_stack_rra(t_pushswap *dt);
-void			ft_stack_rrb(t_pushswap *dt);
-void			ft_stack_rrr(t_pushswap *dt);
-void			ft_stack_sa(t_pushswap *dt);
-void			ft_stack_sb(t_pushswap *dt);
-void			ft_stack_ss(t_pushswap *dt);
+t_stack			*ft_stack_ini(int nb, t_pushswap *dt);
+void			ft_ini_id(t_pushswap *dt);
+void			ft_ini_dtdata(t_pushswap *dt);
+int				ft_ini_id_index(t_stack *temp, t_pushswap *dt);
+void			ft_stackiter(t_stack *start, t_stack *end, void (*f)(void *));
+// void			ft_ini_phase1(t_pushswap *dt);
+// void			ft_stack_pa(t_pushswap *dt);
+// void			ft_stack_pb(t_pushswap *dt);
+// void			ft_stack_ra(t_pushswap *dt);
+// void			ft_stack_rb(t_pushswap *dt);
+// void			ft_stack_rr(t_pushswap *dt);
+// void			ft_stack_rra(t_pushswap *dt);
+// void			ft_stack_rrb(t_pushswap *dt);
+// void			ft_stack_rrr(t_pushswap *dt);
+// void			ft_stack_sa(t_pushswap *dt);
+// void			ft_stack_sb(t_pushswap *dt);
+// void			ft_stack_ss(t_pushswap *dt);
 #endif
 
 
@@ -70,6 +74,7 @@ ToDo:
 - sort check
 - distance calculation algorithm
 - distance implementation.
+- print out Error\n if error.
 
 phase1 - push_swap:
 - find the id that would leave in stack 1 the biggest number of elements after phase 1

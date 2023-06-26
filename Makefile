@@ -6,7 +6,7 @@
 #    By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 12:46:56 by kglebows          #+#    #+#              #
-#    Updated: 2023/06/23 18:27:31 by kglebows         ###   ########.fr        #
+#    Updated: 2023/06/26 18:51:57 by kglebows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFTNAME = libft.a
 LIBFTDIR = ./libft
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-SRCS = 	push_swap.c
+SRCS = 	push_swap.c utils.c input.c ini.c test.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
