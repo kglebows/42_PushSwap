@@ -6,7 +6,7 @@
 #    By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 12:46:56 by kglebows          #+#    #+#              #
-#    Updated: 2023/06/27 15:50:55 by kglebows         ###   ########.fr        #
+#    Updated: 2023/06/27 16:12:11 by kglebows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFTNAME = libft.a
 LIBFTDIR = ./libft
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
-SRCS = 	push_swap.c utils.c input.c ini.c \
+SRCS = 	push_swap.c utils.c input.c ini.c phase1.c \
 		stack_pushRotate.c stack_reverseRotate.c stack_swap.c \
 		test.c
 OBJS = $(SRCS:.c=.o)

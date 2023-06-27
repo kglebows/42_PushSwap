@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:06:31 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 15:51:25 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:17:55 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argn, char *argc[])
 	dt = ft_ini(argn, argc);
 	if (!dt)
 		return (0);
-	// ft_phase1(&dt);
+	// ft_phase1(dt);
 	// ft_phase2(&dt);
 	// ft_phase3(&dt);
 	// ft_result(&dt);

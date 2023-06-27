@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:44:50 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 16:10:17 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:18:17 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,7 @@
 void test(t_pushswap *dt)
 {
 	test_input(dt);
-	ft_stack_ra(dt);
-	ft_stack_ra(dt);
-	ft_stack_ra(dt);
-	ft_stack_pb(dt);
-	ft_stack_ra(dt);
-	ft_stack_pb(dt);
-	ft_stack_rb(dt);
-	ft_stack_pb(dt);
-	ft_stack_rr(dt);
-	ft_stack_rrr(dt);
-	ft_stack_rrr(dt);
-	test_stacks(dt);
-	ft_stack_sa(dt);
-	test_stacks(dt);
-	ft_stack_sb(dt);
-	test_stacks(dt);
-	ft_stack_ss(dt);
+	ft_phase1(dt);
 	test_stacks(dt);
 }
 
