@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 19:35:34 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 11:21:59 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
 		}
 		i[0]++;
 	}
-	if (A != NULL)
-		A->nxt = dt->A;
-	else
-		return (0);
+	// if (A != NULL)
+	// 	A->nxt = dt->A;  ::Circular List::
+	// else
+	// 	return (0);
 	return (1);
 }
 
@@ -95,13 +95,13 @@ int ft_ini_inputcheck(t_pushswap *dt)
 	int			check;
 
 	temp = dt->A;
-	while (temp->nxt != dt->A)
+	while (temp->nxt != NULL)
 	{
 		check = temp->nb;
 		if (check > 2147483647 || check < -2147483648)
 			return (0);
 		tmp = temp;
-		while (tmp->nxt != dt->A)
+		while (tmp->nxt != NULL)
 		{
 			tmp = tmp->nxt;
 			if (tmp->nb == check)

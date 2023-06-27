@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:51:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 19:35:50 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 11:20:38 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ft_ini_dtdata(t_pushswap *dt)
 	dt->len = 1;
 	dt->max = tmp->nb;
 	dt->min = tmp->nb;
-	while (tmp->nxt != dt->A)
+	while (tmp->nxt != NULL)
 	{
 		tmp = tmp->nxt;
 		dt->len++;
@@ -36,7 +36,7 @@ void ft_ini_id(t_pushswap *dt)
 	t_stack		*temp;
 
 	temp = dt->A;
-	while (temp->nxt != dt->A)
+	while (temp->nxt != NULL)
 	{
 		temp->id = ft_ini_id_index(temp, dt);
 		temp = temp->nxt;
@@ -51,7 +51,7 @@ int ft_ini_id_index(t_stack *temp, t_pushswap *dt)
 
 	index = 1;
 	tmp = dt->A;
-	while (tmp->nxt != dt->A)
+	while (tmp->nxt != NULL)
 	{
 		if (tmp->nb < temp->nb)
 			index++;
@@ -70,12 +70,12 @@ void ft_ini_ph1(t_pushswap *dt)
 	int			mv;
 
 	temp = dt->A;
-	while (temp->nxt != dt->A)
+	while (temp->nxt != NULL)
 	{
 		mv = 1;
 		top = temp->id;
 		tmp = temp;
-		while (tmp->nxt != dt->A)
+		while (tmp->nxt != NULL)
 		{
 			tmp = tmp->nxt;
 			if (top < tmp->id)
@@ -97,7 +97,7 @@ void ft_ini_ph1_id(t_pushswap *dt)
 
 	ph1 = 0;
 	tmp = dt->A;
-	while (tmp->nxt != dt->A)
+	while (tmp->nxt != NULL)
 	{
 		if (tmp->mv > ph1)
 		{

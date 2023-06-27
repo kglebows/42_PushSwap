@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:44:50 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/26 21:09:38 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:22:49 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@
 void test(t_pushswap *dt)
 {
 	test_input(dt);
+	ft_stack_ra(dt);
+	ft_stack_ra(dt);
+	ft_stack_ra(dt);
 	ft_stack_pb(dt);
-	test_stacks(dt);
-	ft_stack_pa(dt);
-	test_stacks(dt);
+	ft_stack_ra(dt);
 	ft_stack_pb(dt);
+	ft_stack_rb(dt);
+	ft_stack_pb(dt);
+	ft_stack_rr(dt);
+	test_stacks(dt);
+	ft_stack_rra(dt);
+	ft_stack_rra(dt);
+	ft_stack_rra(dt);
 	test_stacks(dt);
 }
 
@@ -28,41 +36,45 @@ void test_input(t_pushswap *dt)
 {
 	t_stack			*tmp;
 
+	printf("::::::Push Swap::::::\n");
 	printf("::::: max :%4d :::::\n", dt->max);
 	printf("::::: min :%4d :::::\n", dt->min);
 	printf("::::: len :%4d :::::\n", dt->len);
 	printf("::::: ph1 :%4d :::::\n", dt->ph1);
-	printf(":::::: Stack A ::::::\n");
+	printf("::::::::INPUT::::::::\n");
 	printf("::  id :  nb :  mv ::\n");
 	tmp = dt->A;
-	while (tmp->nxt != dt->A)
+	while (tmp != NULL)
 	{
 		printf("::%4d :%4d :%4d ::\n", tmp->id, tmp->nb, tmp->mv);
 		tmp = tmp->nxt;
 	}
-	printf("::%4d :%4d :%4d ::\n", tmp->id, tmp->nb, tmp->mv);
 	printf(":::::::::::::::::::::\n");
 }
 
 void test_stacks(t_pushswap *dt)
 {
-	t_stack			*tmp;
+	t_stack			*A;
+	t_stack			*B;
 
-	printf(":Stack A:\n");
-	tmp = dt->A;
-	while (tmp->nxt != dt->A)
+	printf("::: A ::: B :::\n");
+	A = dt->A;
+	B = dt->B;
+	while (A || B)
 	{
-		printf(": %5d :\n", tmp->id);
-		tmp = tmp->nxt;
+		if (A)
+			printf(": %4d ", A->id);
+		else
+			printf(":      ");
+		if (B)
+			printf(": %4d :\n", B->id);
+		else
+			printf(":      :\n");
+		if (A)
+			A = A->nxt;
+		if (B)
+			B = B->nxt;
 	}
-	printf(": %5d :\n", tmp->id);
-	printf(":Stack B:\n");
-	tmp = dt->B;
-	while (tmp->nxt != NULL)
-	{
-		printf(": %5d :\n", tmp->id);
-		tmp = tmp->nxt;
-	}
-	printf(": %5d :\n", tmp->id);
+	printf(":::::::::::::::\n");
 }
 
