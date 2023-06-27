@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 11:21:59 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:51:58 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
 		}
 		i[0]++;
 	}
-	// if (A != NULL)
-	// 	A->nxt = dt->A;  ::Circular List::
-	// else
-	// 	return (0);
 	return (1);
 }
 

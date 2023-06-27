@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 15:21:48 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:09:58 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ void			ft_stack_rb(t_pushswap *dt);
 void			ft_stack_rr(t_pushswap *dt);
 t_stack			*ft_stacklast(t_stack *stack);
 void			ft_stack_rra(t_pushswap *dt);
-// void			ft_stack_rrb(t_pushswap *dt);
-// void			ft_stack_rrr(t_pushswap *dt);
-// void			ft_stack_sa(t_pushswap *dt);
-// void			ft_stack_sb(t_pushswap *dt);
-// void			ft_stack_ss(t_pushswap *dt);
+void			ft_stack_rrb(t_pushswap *dt);
+void			ft_stack_rrr(t_pushswap *dt);
+void			ft_stack_sa(t_pushswap *dt);
+void			ft_stack_sb(t_pushswap *dt);
+void			ft_stack_ss(t_pushswap *dt);
 #endif
 
 
