@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 16:40:17 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:40:58 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void ft_phase1(t_pushswap *dt)
 	i = dt->ph1;
 	while (dt->A->id != dt->ph1)
 		ft_stack_pb(dt);
-	test_stacks(dt);
 	ft_stack_ra(dt);
 	while (dt->A && dt->A->id != i)
 	{
@@ -32,3 +31,11 @@ void ft_phase1(t_pushswap *dt)
 			ft_stack_pb(dt);
 	}
 }
+
+/*
+possible optimalizations:
+- leave rotations if already sorted
+- check for sa/ss
+- check for rr with pa
+
+*/
