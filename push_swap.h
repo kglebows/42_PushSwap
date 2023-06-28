@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/28 22:46:20 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/06/28 23:02:21 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_phase2
 	int					avg;
 	int					wgt;
 	char				*instr; 
-}
+}						t_phase2;
 
 t_pushswap		*ft_ini(int argn, char *argc[]);
 t_stack			*ft_stack_add(t_stack *A, int nb);
