@@ -6,21 +6,21 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:18:13 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/28 22:57:32 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/21 16:10:10 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_phase2(t_pushswap *dt)
-{
-	ft_stackiter(dt->B, ft_phase2_mv(dt->B));
-}
+// void ft_phase2(t_pushswap *dt)
+// {
+// 	ft_stackiter(dt->B, ft_phase2_mv(dt->B));
+// }
 
-void *ft_phase2_mv(void *B)
-{
+// void *ft_phase2_mv(void *B)
+// {
 	
-}
+// }
 
 
 
@@ -48,5 +48,11 @@ ToDo:
 /^	 test different ratios of distance : avg_mv
 /^	 different scopes of impact could be usefull. tied with amount of input
 /%	 Maybe another structure to save data for later analysis. easy remove.
+
+
+Phase1:
+/!	 determining direction can be beneficial rb/ra
+/!	 if already sorted, should leave it. Both points can be connected 
+
 
 */
