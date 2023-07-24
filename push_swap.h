@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/28 23:02:21 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:22:26 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ int				ft_ini_inputcheck(t_pushswap *dt);
 t_stack			*ft_stack_ini(int nb, t_pushswap *dt);
 void			ft_ini_id(t_pushswap *dt);
 void			ft_ini_dtdata(t_pushswap *dt);
-int				ft_ini_id_index(t_stack *temp, t_pushswap *dt);
 void			ft_stackiter(t_stack *stack, void (*f)(void *));
-void			ft_ini_ph1(t_pushswap *dt);
-void			ft_ini_ph1_id(t_pushswap *dt);
+
 void			test(t_pushswap *dt);
 void			test_stacks(t_pushswap *dt);
 void			ft_stack_pa(t_pushswap *dt);
@@ -75,7 +73,15 @@ void			ft_stack_sb(t_pushswap *dt);
 void			ft_stack_ss(t_pushswap *dt);
 
 void			ft_phase1(t_pushswap *dt);
+int				ft_phase1_imdone(t_pushswap *dt, int first, int last);
 void			ft_phase2(t_pushswap *dt);
+int				ft_phase1_sorted(t_pushswap *dt);
+
+// void reset\_mv(t_stack* node);
+int find_longest_increasing_sequence(t_stack* node);
+void ft_ini_mv(t_pushswap *dt);
+
+
 #endif
 
 

@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 15:51:58 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/24 09:48:51 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_stack	*ft_stack_add(t_stack *A, int nb)
 	if (!new)
 		return (NULL);
 	new->nb = nb;
-	new->mv = 0;
+	new->mv = 1; // 0
 	new->nxt = NULL;
 	new->id = 0;
 	A->nxt = new;
@@ -77,7 +77,7 @@ t_stack	*ft_stack_ini(int nb, t_pushswap *dt)
 	if (!new)
 		return (NULL);
 	new->nb = nb;
-	new->mv = 0;
+	new->mv = 1; // 0
 	new->nxt = NULL;
 	new->id = 0;
 	dt->A = new;

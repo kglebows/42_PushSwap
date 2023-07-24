@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:06:31 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 16:17:55 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:07:35 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ t_pushswap *ft_ini(int argn, char *argc[])
 		return (NULL);
 	ft_ini_dtdata(dt);
 	ft_ini_id(dt);
-	ft_ini_ph1(dt);
+	ft_ini_mv(dt);
 	return (dt);
 }

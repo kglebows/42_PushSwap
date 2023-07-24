@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/21 16:35:27 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:01:27 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,59 @@
 
 void ft_phase1(t_pushswap *dt)
 {
-	int		i;
+	int		first;
 	int		last;
 
-	i = dt->ph1;
-	while (dt->A->id != dt->ph1)
+	while (dt->A->mv != dt->ph1)
 		ft_stack_pb(dt);
-	last = dt->A->id;
+	if (ft_phase1_sorted(dt) == 1)
+		return ;
+	first = dt->A->id;
+	last = first;
 	ft_stack_ra(dt);
-	while (dt->A && dt->A->id != i)
+	dt->ph1--;
+	while (dt->A && dt->A->id != first)
 	{
-		if (dt->A->nxt->id > last && dt->A->nxt->id < dt->A->id)
+		if (ft_phase1_imdone(dt, first, last) == 1)
+			return ;
+		// else if (dt->A->nxt->id > last && dt->A->nxt->id < dt->A->id)
+		// 	ft_stack_sa(dt);
+		else if (dt->A->id > last && dt->A->mv == dt->ph1)
 		{
-			ft_stack_sa(dt);
-		}
-		else if (dt->A->id >= dt->ph1)
-		{
-			dt->ph1 = dt->A->id;
 			last = dt->A->id;
 			ft_stack_ra(dt);
+			dt->ph1--;
 		}
 		else
 			ft_stack_pb(dt);
 	}
+}
+
+int ft_phase1_imdone(t_pushswap *dt, int first, int last)
+{
+	t_stack		*tmp;
+
+	tmp = dt->A;
+	if (dt->A->id > last)
+	{
+		while (tmp->nxt->id > tmp->id)
+			tmp = tmp->nxt;
+		if (tmp->nxt->id == first)
+			return (1);
+	}
+	return (0);
+}
+
+int ft_phase1_sorted(t_pushswap *dt)
+{
+	t_stack		*tmp;
+
+	tmp = dt->A;
+	while (tmp->nxt != NULL && tmp->nxt->id > tmp->id)
+			tmp = tmp->nxt;
+	if (tmp->nxt == NULL)
+		return (1);
+	return (0);
 }
 
 /*
@@ -68,5 +98,5 @@ sa if next > last && next < scan
 =
 when i reached - return. 
 
-
+dribbbleee disabled, need to do tests after finishinig phase 2 and 3
 */

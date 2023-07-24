@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:18:13 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/21 16:10:10 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:25:19 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,11 @@ Phase1:
 /!	 determining direction can be beneficial rb/ra
 /!	 if already sorted, should leave it. Both points can be connected 
 
+
+/!	 based on phase1 mv presort stack B
+
+ PROBLEM nr2/
+
+ Passing imput arguments. passing empty string ? fix needed
 
 */
