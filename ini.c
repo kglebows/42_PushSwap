@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:51:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/24 11:27:16 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/24 11:28:15 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void ft_ini_mv(t_pushswap *dt)
 		tmp = current->nxt;
 		while(tmp != NULL)
 		{
-			tmp->mv = 1;
+			tmp->mv = 1; 
 			tmp = tmp->nxt;
 		}
 		current->mv = find_longest_increasing_sequence(current);

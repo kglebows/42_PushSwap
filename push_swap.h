@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/24 11:22:26 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/26 20:56:46 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ int				ft_phase1_sorted(t_pushswap *dt);
 // void reset\_mv(t_stack* node);
 int find_longest_increasing_sequence(t_stack* node);
 void ft_ini_mv(t_pushswap *dt);
+
+void ft_phase2(t_pushswap *dt);
 
 
 #endif

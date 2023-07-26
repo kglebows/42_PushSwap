@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/24 11:01:27 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/26 14:58:56 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,24 @@ void ft_phase1(t_pushswap *dt)
 		// else if (dt->A->nxt->id > last && dt->A->nxt->id < dt->A->id)
 		// 	ft_stack_sa(dt);
 		else if (dt->A->id > last && dt->A->mv == dt->ph1)
-		{
+		{	
 			last = dt->A->id;
-			ft_stack_ra(dt);
+			if (dt->B->id > (dt->len / 2))
+				ft_stack_rr(dt);
+			else
+				ft_stack_ra(dt);
 			dt->ph1--;
+		}
+		else if (dt->B->id > (dt->len / 2))
+		{
+			ft_stack_rb(dt);
+			ft_stack_pb(dt);
 		}
 		else
 			ft_stack_pb(dt);
 	}
+	if (dt->B->id > (dt->len / 2))
+		ft_stack_rb(dt);
 }
 
 int ft_phase1_imdone(t_pushswap *dt, int first, int last)
