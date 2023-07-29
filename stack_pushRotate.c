@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack1.c                                           :+:      :+:    :+:   */
+/*   stack_pushRotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:45:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 15:46:58 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/29 13:35:45 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void ft_stack_pa(t_pushswap *dt)
 	last = ft_stacklast(dt->A);
 	dt->A = dt->B;
 	dt->B = tmp;
+	if (dt->A->id < dt->top)
+		dt->top = dt->A->id;
 	write(1, "pa\n", 3);
 }
 void ft_stack_ra(t_pushswap *dt)
@@ -53,12 +55,15 @@ void ft_stack_rb(t_pushswap *dt)
 	t_stack			*tmp;
 	t_stack			*last;
 
-	tmp = dt->B;
-	dt->B = dt->B->nxt;
-	last = ft_stacklast(dt->B);
-	last->nxt = tmp;
-	tmp->nxt = NULL;
-	write(1, "rb\n", 3);
+	if (dt->B->nxt)
+	{
+		tmp = dt->B;
+		dt->B = dt->B->nxt;
+		last = ft_stacklast(dt->B);
+		last->nxt = tmp;
+		tmp->nxt = NULL;
+		write(1, "rb\n", 3);	
+	}
 }
 void ft_stack_rr(t_pushswap *dt)
 {

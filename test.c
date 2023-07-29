@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:44:50 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/27 13:30:29 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/29 13:41:20 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,31 @@
 
 void test(t_pushswap *dt)
 {
-	// test_input(dt);
+	test_input(dt);
 	ft_phase1(dt);
-	// test_stacks(dt);
-	ft_phase2(dt);
-	// test_stacks(dt);
-	ft_phase3(dt);
 	test_stacks(dt);
+	printf("---ph1\n");
+	if (dt->len > 25)
+	{
+		ft_phase2(dt);
+		test_stacks(dt);
+		printf("---ph2\n");
+		ft_phase3(dt);
+		test_stacks(dt);
+		printf("---ph3\n");
+		ft_phase4(dt);
+		test_stacks(dt);
+		printf("---ph4\n");
+		ft_phase5(dt);
+		test_stacks(dt);
+		printf("---ph5\n");	
+	}
+	else
+	{
+		ft_shortphase(dt);
+		test_stacks(dt);
+		printf("---short\n");	
+	}
 }
 
 void test_input(t_pushswap *dt)

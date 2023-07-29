@@ -6,11 +6,24 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/26 14:58:56 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/29 14:03:59 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void find_top(t_pushswap *dt)
+{
+	t_stack		*tmp;
+
+	tmp = dt->A;
+	while (tmp)
+	{
+		if (tmp->id < dt->top)
+			dt->top = tmp->id;
+		tmp = tmp->nxt;
+	}
+}
 
 void ft_phase1(t_pushswap *dt)
 {
@@ -23,33 +36,39 @@ void ft_phase1(t_pushswap *dt)
 		return ;
 	first = dt->A->id;
 	last = first;
-	ft_stack_ra(dt);
+	if (dt->len > 3)
+		ft_stack_ra(dt);
 	dt->ph1--;
-	while (dt->A && dt->A->id != first)
+	while (dt->A && (dt->A->id != first || dt->len <= 3))
 	{
 		if (ft_phase1_imdone(dt, first, last) == 1)
+		{
+			find_top(dt);
 			return ;
-		// else if (dt->A->nxt->id > last && dt->A->nxt->id < dt->A->id)
-		// 	ft_stack_sa(dt);
+		}
+		else if (dt->A->nxt->id > last && dt->A->nxt->id < dt->A->id)
+			ft_stack_sa(dt);
 		else if (dt->A->id > last && dt->A->mv == dt->ph1)
 		{	
 			last = dt->A->id;
-			if (dt->B->id > (dt->len / 2))
+			if (dt->B && dt->B->nxt && dt->B->id > (dt->len / 2))
 				ft_stack_rr(dt);
 			else
 				ft_stack_ra(dt);
 			dt->ph1--;
 		}
-		else if (dt->B->id > (dt->len / 2))
+		else if (dt->B && dt->B->id > (dt->len / 2))
 		{
-			ft_stack_rb(dt);
+			if (dt->B->nxt)
+				ft_stack_rb(dt);
 			ft_stack_pb(dt);
 		}
 		else
 			ft_stack_pb(dt);
 	}
-	if (dt->B->id > (dt->len / 2))
+	if (dt->B && dt->B->id >= (dt->len / 2))
 		ft_stack_rb(dt);
+	find_top(dt);
 }
 
 int ft_phase1_imdone(t_pushswap *dt, int first, int last)

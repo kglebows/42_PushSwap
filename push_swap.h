@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/27 13:05:50 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/29 14:10:18 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_pushswap
 	int					min;
 	int					ph1;
 	int					len;
+	int					top;
 	t_stack				*A;
 	t_stack				*B;
 	char				*cmd;
@@ -83,10 +84,21 @@ void ft_ini_mv(t_pushswap *dt);
 
 void ft_phase2(t_pushswap *dt);
 void ft_phase3(t_pushswap *dt);
+void ft_phase4(t_pushswap *dt);
+void ft_phase5(t_pushswap *dt);
+void ft_shortphase(t_pushswap *dt);
 
 #endif
 
 /*
+
+NEW NEW ToDo:
+
+clean up xD
+rewrite phase 1 for 2 1 3. get rid of first and last
+add move counter and checker
+
+
 
 NEW ToDo:
 phase 2-3 -> find the closest route to part 3 either through skipping part 2 or part 4. 

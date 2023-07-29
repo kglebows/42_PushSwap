@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/24 09:48:51 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/07/28 20:27:30 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_pushswap *ft_ini_dt()
 	dt->max = 0;
 	dt->min = 0;
 	dt->ph1 = 0;
+	dt->top = 999999999;
 	return(dt);
 }
 
