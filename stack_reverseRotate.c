@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:46:07 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 15:59:12 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:55:16 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void ft_stack_rra(t_pushswap *dt)
 	while (tmp->nxt != last)
 		tmp = tmp->nxt;
 	tmp->nxt = NULL;
+	dt->cnt++;
 	write(1, "rra\n", 4);
 }
 void ft_stack_rrb(t_pushswap *dt)
@@ -38,6 +39,7 @@ void ft_stack_rrb(t_pushswap *dt)
 	while (tmp->nxt != last)
 		tmp = tmp->nxt;
 	tmp->nxt = NULL;
+	dt->cnt++;
 	write(1, "rrb\n", 4);
 }
 
@@ -60,5 +62,6 @@ void ft_stack_rrr(t_pushswap *dt)
 	while (tmp->nxt != last)
 		tmp = tmp->nxt;
 	tmp->nxt = NULL;
+	dt->cnt++;
 	write(1, "rrr\n", 4);
 }

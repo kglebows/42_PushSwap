@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:44:50 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/29 13:41:20 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:56:16 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ void test_stacks(t_pushswap *dt)
 		if (B)
 			B = B->nxt;
 	}
-	printf(":::::::::::::::\n");
+	printf(":::::%5d:::::\n", dt->cnt);
 }
 

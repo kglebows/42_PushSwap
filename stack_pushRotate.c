@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:45:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/29 13:35:45 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/02 18:12:37 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void ft_stack_pb(t_pushswap *dt)
 	last = ft_stacklast(dt->B);
 	dt->B = dt->A;
 	dt->A = tmp;
+	dt->cnt++;
 	write(1, "pb\n", 3);
 }
 void ft_stack_pa(t_pushswap *dt)
@@ -36,6 +37,7 @@ void ft_stack_pa(t_pushswap *dt)
 	dt->B = tmp;
 	if (dt->A->id < dt->top)
 		dt->top = dt->A->id;
+	dt->cnt++;
 	write(1, "pa\n", 3);
 }
 void ft_stack_ra(t_pushswap *dt)
@@ -48,6 +50,7 @@ void ft_stack_ra(t_pushswap *dt)
 	last = ft_stacklast(dt->A);
 	last->nxt = tmp;
 	tmp->nxt = NULL;
+	dt->cnt++;
 	write(1, "ra\n", 3);
 }
 void ft_stack_rb(t_pushswap *dt)
@@ -62,6 +65,7 @@ void ft_stack_rb(t_pushswap *dt)
 		last = ft_stacklast(dt->B);
 		last->nxt = tmp;
 		tmp->nxt = NULL;
+		dt->cnt++;
 		write(1, "rb\n", 3);	
 	}
 }
@@ -80,5 +84,6 @@ void ft_stack_rr(t_pushswap *dt)
 	last = ft_stacklast(dt->B);
 	last->nxt = tmp;
 	tmp->nxt = NULL;
+	dt->cnt++;
 	write(1, "rr\n", 3);
 }

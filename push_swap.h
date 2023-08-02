@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/29 14:10:18 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:53:56 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_pushswap
 	int					ph1;
 	int					len;
 	int					top;
+	int					cnt;
 	t_stack				*A;
 	t_stack				*B;
 	char				*cmd;

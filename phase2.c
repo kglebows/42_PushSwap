@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:18:13 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/29 13:52:29 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:34:51 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int distance_end(int id, int top, t_pushswap *dt)
 		return (distance_bot);
 }
 
-int distance(int id, t_pushswap *dt)
+int distance__(int id, t_pushswap *dt)
 {
 	t_stack		*tmp;
 	int			r;
@@ -77,7 +77,7 @@ int distance(int id, t_pushswap *dt)
 	r = 0;
 	rr = 0;
 	tmp = dt->A;
-	while (tmp->nxt)
+	while (tmp && tmp->nxt)
 	{
 		if (dt->top > id && tmp->id == dt->top)
 			break;
@@ -88,15 +88,15 @@ int distance(int id, t_pushswap *dt)
 			break;
 		tmp = tmp->nxt;
 	}
-	if (!tmp->nxt)
+	if (tmp && !tmp->nxt && tmp->id > id)
 		rr++;
-	while (tmp->nxt)
+	while (tmp && tmp->nxt)
 	{
 		rr++;
 		tmp = tmp->nxt;
 	}
 	// printf("r%d : rr%d\n", r, rr);
-	if (dt->A->id > id && tmp->id < id)
+	if (tmp && dt->A->id > id && tmp->id < id)
 		return (0);
 	if (r <= rr)
 		return (r);
@@ -104,14 +104,56 @@ int distance(int id, t_pushswap *dt)
 		return (rr * -1);
 }
 
+int distance(int id, t_pushswap *dt)
+{
+	t_stack		*tmp;
+	int			r;
+	int			len;
+	int			last;
+
+	r = 0;
+	len = 1;
+	tmp = dt->A;
+	while (tmp->nxt)
+	{
+		len++;
+		tmp = tmp->nxt;
+	}
+	last = tmp->id;
+	tmp = dt->A;
+	// if ((tmp->id == 1 && id > last) || (tmp->id > id && last < id) || (tmp->id < id && last > id))
+	if (tmp->id > id && last < id)
+		return (0);
+	while (tmp)
+	{
+		if (dt->top > id && tmp->id == dt->top)
+			break;
+		r++;
+		if (tmp->nxt && tmp->id < id && tmp->nxt->id > id)
+			break;
+		if (tmp->nxt && tmp->nxt->id == dt->top && tmp->id < id)
+			break;
+		tmp = tmp->nxt;
+	}
+	// printf("r%d : rr%d\n", r, len - r);
+	// test_stacks(dt);
+	// if (tmp && dt->A->id > id && tmp->id < id)
+	// 	return (0);
+	if (r <= len - r)
+		return (r);
+	else
+		return ((len - r) * -1);
+}
+
+
 int swap(int first, int next)
 {
-	// printf("%d :: %d\n", first, next);
+	//  printf("%d :: %d\n", first, next);
 	if (first < 0)
 		first = first * -1;
 	if (next < 0)
 		next = next * -1;
-	if (next + 1 < first)
+	if (next < first)
 		return (1);
 	return (0);
 }
@@ -124,6 +166,7 @@ int sort(int top, int bot, t_pushswap *dt)
 		ft_stack_rb(dt);
 	else
 	{
+		// test_stacks(dt);
 		dist = distance(dt->B->id, dt);
 		if (dt->B->nxt && dt->B->nxt->id <= bot && swap(dist, distance(dt->B->nxt->id, dt)))
 			ft_stack_sb(dt);
@@ -300,7 +343,10 @@ void ft_shortphase(t_pushswap *dt)
 	top = 1;
 	while (dt->B)
 		top = sort(top, bot, dt);
-	if (distance(1, dt) > 0)
+	if (dt->A->id == 1)
+		return ;
+	//    test_stacks(dt);
+	if (distance(0, dt) > 0)
 	{
 		while (dt->A->id != 1)
 			ft_stack_ra(dt);
@@ -308,6 +354,9 @@ void ft_shortphase(t_pushswap *dt)
 	else
 	{
 		while (dt->A->id != 1)
+		{
 			ft_stack_rra(dt);
+			// test_stacks(dt);
+		}
 	}
 }

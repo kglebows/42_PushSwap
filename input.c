@@ -6,11 +6,23 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/07/28 20:27:30 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/02 20:09:38 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void ft_free(char **arr)
+{
+    int i = 0;
+
+    while (arr[i] != NULL)
+    {
+        free(arr[i]);
+        i++;
+    }
+    free(arr);
+}
 
 int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
 {
@@ -32,6 +44,8 @@ int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
 				A = ft_stack_add(A, ft_atoi(arr[i[1]]));
 			i[1]++;
 		}
+		ft_free(arr);
+		arr = NULL; 
 		i[0]++;
 	}
 	return (1);
@@ -52,6 +66,7 @@ t_pushswap *ft_ini_dt()
 	dt->min = 0;
 	dt->ph1 = 0;
 	dt->top = 999999999;
+	dt->cnt = 0;
 	return(dt);
 }
 
