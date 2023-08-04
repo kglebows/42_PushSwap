@@ -6,17 +6,60 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:44:50 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/02 17:56:16 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/04 17:15:08 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stdio.h"
 
+void distance_test(t_pushswap *dt)
+{
+	int		test;
+
+	test_stacks(dt);
+	test = distanceB(1, dt);
+	printf("dla 1: %d\n", test);
+	test = distanceB(3, dt);
+	printf("dla 3: %d\n", test);
+	test = distanceB(5, dt);
+	printf("dla 5: %d\n", test);
+	test = distanceB(7, dt);
+	printf("dla 7: %d\n", test);
+	test = distanceB(9, dt);
+	printf("dla 9: %d\n", test);
+	test = distanceB(11, dt);
+	printf("dla 11: %d\n", test);
+}
+
+void distance_tester(t_pushswap *dt)
+{
+	// for input : ./push_swap 1 2 3 4 5 6 7 8 9 10 
+	ft_stack_ra(dt);
+	ft_stack_pb(dt);
+	ft_stack_ra(dt);
+	ft_stack_pb(dt);
+	ft_stack_ra(dt);
+	ft_stack_pb(dt);
+	ft_stack_ra(dt);
+	ft_stack_pb(dt);
+	ft_stack_ra(dt);
+	ft_stack_pb(dt);
+	distance_test(dt);
+	ft_stack_rrb(dt);
+	distance_test(dt);
+	ft_stack_rrb(dt);
+	distance_test(dt);
+	ft_stack_rrb(dt);
+	ft_stack_rrb(dt);
+	distance_test(dt);
+}
+
 void test(t_pushswap *dt)
 {
+
 	test_input(dt);
-	ft_phase1(dt);
+	ft_phase500(dt);
 	test_stacks(dt);
 	printf("---ph1\n");
 	if (dt->len > 25)

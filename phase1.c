@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/02 16:03:45 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/03 14:03:30 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,44 @@ void ft_phase1(t_pushswap *dt)
 	find_top(dt);
 }
 
+void ft_phase500(t_pushswap *dt)
+{
+	int			step;
+	int			smooth;
+	int			last;
+	int			first;
 
+	step = dt->len * 0.06;
+	last = 0;
+	first = 0;
+	while(dt->A->id != first)
+	{
+		smooth = 0;
+		while(dt->A->id != first)
+		{
+			// if (dt->A->nxt && dt->A->nxt->id < dt->A->id)
+			// {
+			// 	if (dt->B && dt->B->nxt && dt->B->nxt->id > dt->B->id)
+			// 		ft_stack_ss(dt);
+			// 	else
+			// 		ft_stack_sa(dt);
+			// }
+			if (dt->A->id > last && dt->A->id < last + step + smooth)
+			{
+				last = dt->A->id;
+				if (first == 0)
+					first = last;
+				if (dt->B && dt->B->nxt && dt->B->id > dt->len / 2)
+					ft_stack_rr(dt);
+				else
+					ft_stack_ra(dt);
+			}
+			else
+				ft_stack_pb(dt);
+			smooth++;
+		}
+	}
+}
 // int ft_phase1_sorted(t_pushswap *dt)
 // {
 // 	t_stack		*tmp;

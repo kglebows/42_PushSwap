@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/02 17:53:56 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/04 17:13:07 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+
+#include "stdio.h"
 
 typedef struct s_stack
 {
@@ -36,17 +38,6 @@ typedef struct s_pushswap
 	char				*cmd;
 }						t_pushswap;
 
-typedef struct s_phase2
-{
-	int					ra;
-	int					rb;
-	int					rra;
-	int					rrb;
-	int					mv;
-	int					avg;
-	int					wgt;
-	char				*instr; 
-}						t_phase2;
 
 t_pushswap		*ft_ini(int argn, char *argc[]);
 t_stack			*ft_stack_add(t_stack *A, int nb);
@@ -88,6 +79,9 @@ void ft_phase3(t_pushswap *dt);
 void ft_phase4(t_pushswap *dt);
 void ft_phase5(t_pushswap *dt);
 void ft_shortphase(t_pushswap *dt);
+void ft_phase500(t_pushswap *dt);
+
+int distanceB(int id, t_pushswap *dt);
 
 #endif
 
