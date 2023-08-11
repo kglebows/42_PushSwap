@@ -6,20 +6,11 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 12:09:07 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:43:11 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void ft_stackiter(t_stack *stack, void (*f)(void *))
-{
-	while (stack)
-	{
-		f(stack);
-		stack = stack->nxt;
-	}
-}
 
 t_stack *ft_stacklast(t_stack *stack)
 {
@@ -34,7 +25,75 @@ t_stack *ft_stacklast(t_stack *stack)
 	return (last);
 }
 
-void ft_Error(void)
+void ft_free(char **arr)
 {
-	write(1, "Error\n", 6);
+	int i = 0;
+
+	while (arr[i] != NULL)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
+
+int mvB_(t_pushswap *dt, t_stack *tmp, int cnt, int rot)
+{
+	if (cnt < dt->Alen / 2)
+	{
+		tmp->rt = rot * -1;
+		rot++;
+	}
+	if (cnt == dt->Alen / 2 && dt->Alen % 2 == 1)
+		rot++;
+	if (cnt == dt->Alen / 2)
+		cnt++;
+	if (cnt > dt->Alen / 2)
+	{
+		tmp->rt = rot;
+		rot--;
+	}
+	return(rot);
+}
+
+void mvB(t_pushswap *dt)
+{
+	t_stack			*tmp;
+	int				rot;
+	int				cnt;
+
+	rot = 0;
+	cnt = 0;
+	tmp = dt->A;
+	while (tmp)
+	{
+		tmp->mv = distanceB(tmp->id, dt);
+		rot = mvB_(dt, tmp, cnt, rot);
+		if (cnt == dt->Alen / 2)
+			cnt++;
+		cnt++;
+		tmp = tmp->nxt;
+	}
+}
+
+void sortB(t_pushswap *dt)
+{
+	int		turn;
+
+	turn = distanceB(0, dt);
+	while (turn != 0)
+	{
+		if (turn > 0)
+		{
+			ft_stack_rb(dt);
+			turn--;
+		}
+		if (turn < 0)
+		{
+			ft_stack_rrb(dt);
+			turn++;
+		}
+	}
+	while (dt->B)
+		ft_stack_pa(dt);
 }

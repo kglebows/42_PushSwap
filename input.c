@@ -6,22 +6,42 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 13:02:22 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:46:04 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_free(char **arr)
+t_stack	*ft_stack_add(t_stack *A, int nb)
 {
-    int i = 0;
+	t_stack	*new;
 
-    while (arr[i] != NULL)
-    {
-        free(arr[i]);
-        i++;
-    }
-    free(arr);
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->nb = nb;
+	new->mv = 1;
+	new->rt = 0;
+	new->nxt = NULL;
+	new->id = 0;
+	A->nxt = new;
+	return (new);
+}
+
+t_stack	*ft_stack_ini(int nb, t_pushswap *dt)
+{
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->nb = nb;
+	new->mv = 1;
+	new->nxt = NULL;
+	new->rt = 0;
+	new->id = 0;
+	dt->A = new;
+	return (new);
 }
 
 int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
@@ -70,38 +90,6 @@ t_pushswap *ft_ini_dt()
 	dt->top = 999999999;
 	dt->cnt = 0;
 	return(dt);
-}
-
-t_stack	*ft_stack_add(t_stack *A, int nb)
-{
-	t_stack	*new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->nb = nb;
-	new->mv = 1; // 0
-	new->rt = 0;
-	new->nxt = NULL;
-	new->id = 0;
-	A->nxt = new;
-	return (new);
-}
-
-t_stack	*ft_stack_ini(int nb, t_pushswap *dt)
-{
-	t_stack	*new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->nb = nb;
-	new->mv = 1; // 0
-	new->nxt = NULL;
-	new->rt = 0;
-	new->id = 0;
-	dt->A = new;
-	return (new);
 }
 
 int ft_ini_inputcheck(t_pushswap *dt)

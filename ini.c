@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:51:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 13:19:57 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:20:20 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void ft_ini_id(t_pushswap *dt)
 	}
 	temp->id = assign_sorted_id(temp, dt);
 }
-
 
 int find_longest_increasing_sequence(t_stack* node)
 {
