@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:45:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:58:51 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 17:13:27 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void ft_stack_pb(t_pushswap *dt)
 	dt->A = tmp;
 	dt->cnt++;
 	dt->Alen--;
-	dt->Blen++;
 	write(1, "pb\n", 3);
 }
 void ft_stack_pa(t_pushswap *dt)
@@ -41,7 +40,6 @@ void ft_stack_pa(t_pushswap *dt)
 		dt->top = dt->A->id;
 	dt->cnt++;
 	dt->Alen++;
-	dt->Blen--;
 	write(1, "pa\n", 3);
 }
 void ft_stack_ra(t_pushswap *dt)

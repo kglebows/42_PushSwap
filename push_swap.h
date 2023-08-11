@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 16:09:11 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 17:13:12 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ typedef struct s_pushswap
 	int					ph1;
 	int					len;
 	int					Alen;
-	int					Blen;
 	int					top;
 	int					cnt;
 	t_stack				*A;
 	t_stack				*B;
-	char				*cmd;
 }						t_pushswap;
 
 //sort
@@ -84,6 +82,4 @@ void			ft_stack_sa(t_pushswap *dt);
 void			ft_stack_sb(t_pushswap *dt);
 void			ft_stack_ss(t_pushswap *dt);
 
-
-int find_longest_increasing_sequence(t_stack* node);
 #endif
