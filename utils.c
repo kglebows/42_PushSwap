@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/06/27 16:15:30 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:09:07 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ t_stack *ft_stacklast(t_stack *stack)
 			last = last->nxt;
 	}
 	return (last);
+}
+
+void ft_Error(void)
+{
+	write(1, "Error\n", 6);
 }

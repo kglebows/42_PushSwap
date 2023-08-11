@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:06:31 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/04 12:56:47 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:11:36 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int main(int argn, char *argc[])
 	// ft_phase3(&dt);
 	// ft_result(&dt);
 	// ft_cleanup(&dt);
-
-	test(dt);
-	
+	// ft_stack_pb(dt);
+	//  test_input(dt);
+	// test(dt);
+	// distance_tester(dt);
+	// test_stacks (dt);
 	// if (dt->len > 120)
 	// 	ft_phase500(dt);
 	// else
@@ -41,6 +43,20 @@ int main(int argn, char *argc[])
 	// else
 	// 	ft_shortphase(dt);
 
+	// sortB(dt);
+	// test_stacks(dt);
+	// ft_stack_pb(dt);
+	// ft_stack_pb(dt);
+	// test_stacks(dt);
+	
+	mvB(dt);
+	while (dt->A)	
+		do_the_next_best_move(dt);
+
+	
+	sortB(dt);
+
+	// test_stacks(dt);
 	
 	return (1);
 }
@@ -60,5 +76,7 @@ t_pushswap *ft_ini(int argn, char *argc[])
 	ft_ini_id(dt);
 	if (dt->len < 110)
 		ft_ini_mv(dt);
+	// else
+		// mvB(dt);
 	return (dt);
 }

@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:51:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/02 20:33:01 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 13:19:57 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void ft_ini_dtdata(t_pushswap *dt)
 		if (tmp->nb < dt->min)
 			dt->min = tmp->nb;
 	}
+	dt->Alen = dt->len;
 }
 
 int assign_sorted_id(t_stack *temp, t_pushswap *dt)

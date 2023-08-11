@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/02 20:09:38 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 13:02:22 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ t_pushswap *ft_ini_dt()
 	dt->B = NULL;
 	dt->cmd = NULL;
 	dt->len = 0;
+	dt->Alen = 0;
+	dt->Blen = 0;
 	dt->max = 0;
 	dt->min = 0;
 	dt->ph1 = 0;
@@ -79,6 +81,7 @@ t_stack	*ft_stack_add(t_stack *A, int nb)
 		return (NULL);
 	new->nb = nb;
 	new->mv = 1; // 0
+	new->rt = 0;
 	new->nxt = NULL;
 	new->id = 0;
 	A->nxt = new;
@@ -95,6 +98,7 @@ t_stack	*ft_stack_ini(int nb, t_pushswap *dt)
 	new->nb = nb;
 	new->mv = 1; // 0
 	new->nxt = NULL;
+	new->rt = 0;
 	new->id = 0;
 	dt->A = new;
 	return (new);

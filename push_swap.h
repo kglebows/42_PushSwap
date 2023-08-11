@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/04 17:13:07 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/11 13:01:57 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 	int					nb;
 	int					id;
 	int					mv;
+	int					rt;
 	struct s_stack		*nxt;
 }						t_stack;
 
@@ -31,6 +32,8 @@ typedef struct s_pushswap
 	int					min;
 	int					ph1;
 	int					len;
+	int					Alen;
+	int					Blen;
 	int					top;
 	int					cnt;
 	t_stack				*A;
@@ -82,6 +85,12 @@ void ft_shortphase(t_pushswap *dt);
 void ft_phase500(t_pushswap *dt);
 
 int distanceB(int id, t_pushswap *dt);
+void sortB(t_pushswap *dt);
+void distance_tester(t_pushswap *dt);
+int distanceA(int id, t_pushswap *dt);
+void mvB(t_pushswap *dt);
+void ft_Error(void);
+void do_the_next_best_move(t_pushswap *dt);
 
 #endif
 
