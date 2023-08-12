@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 17:13:12 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 12:47:42 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ t_stack			*ft_stacklast(t_stack *stack);
 void			mvB(t_pushswap *dt);
 void			sortB(t_pushswap *dt);
 void			ft_free(char **arr);
+t_pushswap		*ft_Error(void);
+int				ft_isnum(char *str);
 
 //ini
 void			ft_ini_dtdata(t_pushswap *dt);

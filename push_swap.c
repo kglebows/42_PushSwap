@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:06:31 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 17:19:04 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 13:02:44 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_pushswap *ft_ini(int argn, char *argc[])
 		return (NULL);
 	dt = ft_ini_dt();
 	if (!dt || ft_ini_A(argn, argc, dt) == 0)
-		return (NULL);
+		return (ft_Error());
 	if (ft_ini_inputcheck(dt) == 0)
-		return (NULL);
+		return (ft_Error());
 	ft_ini_dtdata(dt);
 	ft_ini_id(dt);
 	if (dt->len < 26)
@@ -57,7 +57,7 @@ int main(int argn, char *argc[])
 {
 	t_pushswap		*dt;
 
-	dt = ft_ini(argn, argc); // tu jeszcze sprawdzic input
+	dt = ft_ini(argn, argc);
 	if (!dt)
 		return (0);
 	if (dt->len > 25)

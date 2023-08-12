@@ -6,7 +6,7 @@
 #    By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 12:46:56 by kglebows          #+#    #+#              #
-#    Updated: 2023/08/11 15:59:24 by kglebows         ###   ########.fr        #
+#    Updated: 2023/08/12 12:38:31 by kglebows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 SRCS = 	push_swap.c utils.c input.c ini.c phase1.c phase2.c \
 		stack_pushRotate.c stack_reverseRotate.c stack_swap.c \
-		distanceB.c sort.c
+		distanceB.c sort.c utils2.c
 OBJS = $(SRCS:.c=.o)
 TESTER_GET  =   https://raw.githubusercontent.com/lorenuars19/push_swap_tester/main/push_swap_tester.pl
 TESTER      =   ./ps_tester.pl
