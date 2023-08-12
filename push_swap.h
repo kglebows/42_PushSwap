@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 12:47:42 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:06:20 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void			sortB(t_pushswap *dt);
 void			ft_free(char **arr);
 t_pushswap		*ft_Error(void);
 int				ft_isnum(char *str);
+int				swap(int first, int next);
 
 //ini
 void			ft_ini_dtdata(t_pushswap *dt);
@@ -54,7 +55,7 @@ void			ft_ini_id(t_pushswap *dt);
 void			ft_ini_mv(t_pushswap *dt);
 
 //distanceB
-int				distanceB(int id, t_pushswap *dt);
+int				distance_b(int id, t_pushswap *dt);
 
 //input
 int				ft_ini_A(int argn, char *argc[], t_pushswap *dt);

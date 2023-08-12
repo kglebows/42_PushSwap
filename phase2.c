@@ -6,11 +6,30 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:18:13 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:54:41 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:02:51 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int distance_(int id, int r, t_pushswap *dt)
+{
+	t_stack		*tmp;
+
+	tmp = dt->A;
+	while (tmp)
+	{
+		if (dt->top > id && tmp->id == dt->top)
+			break;
+		r++;
+		if (tmp->nxt && tmp->id < id && tmp->nxt->id > id)
+			break;
+		if (tmp->nxt && tmp->nxt->id == dt->top && tmp->id < id)
+			break;
+		tmp = tmp->nxt;
+	}
+	return (r);
+}
 
 int distance(int id, t_pushswap *dt)
 {
@@ -28,35 +47,38 @@ int distance(int id, t_pushswap *dt)
 		tmp = tmp->nxt;
 	}
 	last = tmp->id;
-	tmp = dt->A;
-	if (tmp->id > id && last < id)
+	if (dt->A->id > id && last < id)
 		return (0);
-	while (tmp)
-	{
-		if (dt->top > id && tmp->id == dt->top)
-			break;
-		r++;
-		if (tmp->nxt && tmp->id < id && tmp->nxt->id > id)
-			break;
-		if (tmp->nxt && tmp->nxt->id == dt->top && tmp->id < id)
-			break;
-		tmp = tmp->nxt;
-	}
+	r = distance_(id, r, dt);
 	if (r <= len - r)
 		return (r);
 	else
 		return ((len - r) * -1);
 }
 
-int swap(int first, int next)
+int sort_(int dist, t_pushswap *dt)
 {
-	if (first < 0)
-		first = first * -1;
-	if (next < 0)
-		next = next * -1;
-	if (next < first)
-		return (1);
-	return (0);
+	if (dist == 0)
+		ft_stack_pa(dt);
+	else if (dist > 0)
+	{
+		while (dist > 0)
+		{
+			ft_stack_ra(dt);
+			dist--;
+		}
+		ft_stack_pa(dt);
+	}
+	else
+	{
+		while (dist < 0)
+		{
+			ft_stack_rra(dt);
+			dist++;
+		}
+		ft_stack_pa(dt);
+	}
+	return (dist);
 }
 
 int sort(int top, int bot, t_pushswap *dt)
@@ -70,26 +92,8 @@ int sort(int top, int bot, t_pushswap *dt)
 		dist = distance(dt->B->id, dt);
 		if (dt->B->nxt && dt->B->nxt->id <= bot && swap(dist, distance(dt->B->nxt->id, dt)))
 			ft_stack_sb(dt);
-		else if (dist == 0)
-			ft_stack_pa(dt);
-		else if (dist > 0)
-		{
-			while (dist > 0)
-			{
-				ft_stack_ra(dt);
-				dist--;
-			}
-			ft_stack_pa(dt);
-		}
-		else
-		{
-			while (dist < 0)
-			{
-				ft_stack_rra(dt);
-				dist++;
-			}
-			ft_stack_pa(dt);
-		}
+		else 
+			dist = sort_(dist, dt);
 		if (dt->A->id < top)
 			top = dt->A->id;
 	}

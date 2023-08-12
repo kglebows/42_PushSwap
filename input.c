@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 12:47:55 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 14:39:49 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_stack	*ft_stack_ini(int nb, t_pushswap *dt)
 
 int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
 {
-	int			i[2];
+	long		i[3];
 	char		**arr;
 	t_stack		*A;
 
@@ -56,18 +56,18 @@ int ft_ini_A(int argn, char *argc[], t_pushswap *dt)
 	{
 		arr = ft_split(argc[i[0]], ' ');
 		i[1] = 0;
-		while(arr[i[1]] != NULL)
+		while(arr[i[1]])
 		{
-			if (!ft_isnum(arr[i[1]]))
+			i[2] = ft_atoi(arr[i[1]]);
+			if (!ft_isnum(arr[i[1]]) || i[2] > 2147483647 || i[2] < -2147483648)
 				return (0);
-			if (A == NULL)
-				A = ft_stack_ini(ft_atoi(arr[i[1]]), dt);
+			if (!A)
+				A = ft_stack_ini((int) i[2], dt);
 			else
-				A = ft_stack_add(A, ft_atoi(arr[i[1]]));
+				A = ft_stack_add(A, (int) i[2]);
 			i[1]++;
 		}
-		ft_free(arr);
-		arr = NULL; 
+		ft_free(arr); 
 		i[0]++;
 	}
 	return (1);
@@ -102,9 +102,6 @@ int ft_ini_inputcheck(t_pushswap *dt)
 	while (temp->nxt != NULL)
 	{
 		check = temp->nb;
-		if (check > 2147483647 || check < -2147483648)
-			return (0);
-		if (check )
 		tmp = temp;
 		while (tmp->nxt != NULL)
 		{

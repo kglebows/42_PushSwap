@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:43:11 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:08:19 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void mvB(t_pushswap *dt)
 	tmp = dt->A;
 	while (tmp)
 	{
-		tmp->mv = distanceB(tmp->id, dt);
+		tmp->mv = distance_b(tmp->id, dt);
 		rot = mvB_(dt, tmp, cnt, rot);
 		if (cnt == dt->Alen / 2)
 			cnt++;
@@ -80,7 +80,7 @@ void sortB(t_pushswap *dt)
 {
 	int		turn;
 
-	turn = distanceB(0, dt);
+	turn = distance_b(0, dt);
 	while (turn != 0)
 	{
 		if (turn > 0)

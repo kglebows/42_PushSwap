@@ -6,13 +6,13 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:40:40 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:39:06 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:05:43 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int dir(int distance, int len)
+int	dir(int distance, int len)
 {
 	if (distance == len)
 		distance = 0;
@@ -22,7 +22,7 @@ int dir(int distance, int len)
 		return (distance);
 }
 
-int dis(int id, int low, t_stack *tmp)
+int	dis(int id, int low, t_stack *tmp)
 {
 	int			dis;
 	int			len;
@@ -44,7 +44,7 @@ int dis(int id, int low, t_stack *tmp)
 	return (dis);
 }
 
-int dist(int id, int low, int len, t_pushswap *dt)
+int	dist(int id, int low, int len, t_pushswap *dt)
 {
 	t_stack		*tmp;
 	int			dis1;
@@ -70,7 +70,7 @@ int dist(int id, int low, int len, t_pushswap *dt)
 	return (dir(dis1, len));
 }
 
-int distanceB(int id, t_pushswap *dt)
+int	distance_b(int id, t_pushswap *dt)
 {
 	t_stack		*tmp;
 	int			low;

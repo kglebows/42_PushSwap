@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 13:01:28 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:02:49 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,15 @@ int ft_isnum(char *str)
 		str++;
 	}
 	return(1);
+}
+
+int swap(int first, int next)
+{
+	if (first < 0)
+		first = first * -1;
+	if (next < 0)
+		next = next * -1;
+	if (next < first)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:47:15 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/12 14:50:07 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,30 @@ int sorted(t_pushswap *dt)
 	return (0);
 }
 
+int ft_phase1_(int last, t_pushswap *dt)
+{
+	if (dt->len < 6 && dt->A->nxt && dt->A->nxt->id < dt->A->id)
+		ft_stack_sa(dt);
+	else if (dt->A->id > last && dt->A->mv == dt->ph1)
+	{	
+		last = dt->A->id;
+		if (dt->B && dt->B->nxt && dt->B->id > (dt->len / 2))
+			ft_stack_rr(dt);
+		else
+			ft_stack_ra(dt);
+		dt->ph1--;
+	}
+	else if (dt->B && dt->B->id > (dt->len / 2))
+	{
+		if (dt->B->nxt)
+			ft_stack_rb(dt);
+		ft_stack_pb(dt);
+	}
+	else
+		ft_stack_pb(dt);
+	return (last);
+}
+
 void ft_phase1(t_pushswap *dt)
 {
 	int		first;
@@ -64,25 +88,7 @@ void ft_phase1(t_pushswap *dt)
 			find_top(dt);
 			return ;
 		}
-		else if (dt->len < 6 && dt->A->nxt && dt->A->nxt->id < dt->A->id)
-			ft_stack_sa(dt);
-		else if (dt->A->id > last && dt->A->mv == dt->ph1)
-		{	
-			last = dt->A->id;
-			if (dt->B && dt->B->nxt && dt->B->id > (dt->len / 2))
-				ft_stack_rr(dt);
-			else
-				ft_stack_ra(dt);
-			dt->ph1--;
-		}
-		else if (dt->B && dt->B->id > (dt->len / 2))
-		{
-			if (dt->B->nxt)
-				ft_stack_rb(dt);
-			ft_stack_pb(dt);
-		}
-		else
-			ft_stack_pb(dt);
+		last = ft_phase1_(last, dt);
 	}
 	if (dt->B && dt->B->id >= (dt->len / 2))
 		ft_stack_rb(dt);
