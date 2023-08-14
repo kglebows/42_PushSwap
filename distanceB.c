@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:40:40 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:39:05 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:38:45 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	dist(int id, int low, int len, t_pushswap *dt)
 	return (dir(dis1, len));
 }
 
-int	distance_b(int id, t_pushswap *dt)
+int	ft_distance_b(int id, t_pushswap *dt)
 {
 	t_stack		*tmp;
 	int			low;

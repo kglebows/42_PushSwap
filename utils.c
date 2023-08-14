@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:43:55 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:36:53 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	mvb_(t_pushswap *dt, t_stack *tmp, int cnt, int rot)
 	return (rot);
 }
 
-void	mvb(t_pushswap *dt)
+void	ft_mvb(t_pushswap *dt)
 {
 	t_stack			*tmp;
 	int				rot;
@@ -68,7 +68,7 @@ void	mvb(t_pushswap *dt)
 	tmp = dt->a;
 	while (tmp)
 	{
-		tmp->mv = distance_b(tmp->id, dt);
+		tmp->mv = ft_distance_b(tmp->id, dt);
 		rot = mvb_(dt, tmp, cnt, rot);
 		if (cnt == dt->alen / 2)
 			cnt++;
@@ -77,11 +77,11 @@ void	mvb(t_pushswap *dt)
 	}
 }
 
-void	sortb(t_pushswap *dt)
+void	ft_sortb(t_pushswap *dt)
 {
 	int		turn;
 
-	turn = distance_b(0, dt);
+	turn = ft_distance_b(0, dt);
 	while (turn != 0)
 	{
 		if (turn > 0)

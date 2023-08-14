@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:18:13 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:47:58 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:38:27 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	sort(int top, int bot, t_pushswap *dt)
 	{
 		dist = distance(dt->b->id, dt);
 		if (dt->b->nxt && dt->b->nxt->id <= bot
-			&& swap(dist, distance(dt->b->nxt->id, dt)))
+			&& ft_swap(dist, distance(dt->b->nxt->id, dt)))
 			ft_stack_sb(dt);
 		else
 			dist = sort_(dist, dt);

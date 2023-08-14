@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:30:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:46:40 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:40:21 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	single_rotations(t_pushswap *dt)
 	}
 }
 
-void	do_the_next_best_move(t_pushswap *dt)
+void	ft_do_the_next_best_move(t_pushswap *dt)
 {
 	find_the_next_best_move(dt);
 	while (dt->ph1 != 0 || dt->top != 0)
@@ -92,5 +92,5 @@ void	do_the_next_best_move(t_pushswap *dt)
 			single_rotations(dt);
 	}
 	ft_stack_pb(dt);
-	mvb(dt);
+	ft_mvb(dt);
 }

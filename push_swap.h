@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:46:55 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:39:59 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,18 @@ typedef struct s_pushswap
 }						t_pushswap;
 
 //sort
-void			do_the_next_best_move(t_pushswap *dt);
+void			ft_do_the_next_best_move(t_pushswap *dt);
 
 //utils
 t_stack			*ft_stacklast(t_stack *stack);
-void			mvb(t_pushswap *dt);
-void			sortb(t_pushswap *dt);
+void			ft_mvb(t_pushswap *dt);
+void			ft_sortb(t_pushswap *dt);
 void			ft_free(char **arr);
 t_pushswap		*ft_error(void);
 int				ft_isnum(char *str);
-int				swap(int first, int next);
+int				ft_swap(int first, int next);
+t_pushswap		*ft_ini(int argn, char *argc[]);
+void			ft_cleanup(t_pushswap *dt);
 
 //ini
 void			ft_ini_dtdata(t_pushswap *dt);
@@ -55,7 +57,7 @@ void			ft_ini_id(t_pushswap *dt);
 void			ft_ini_mv(t_pushswap *dt);
 
 //distanceB
-int				distance_b(int id, t_pushswap *dt);
+int				ft_distance_b(int id, t_pushswap *dt);
 
 //input
 int				ft_ini_a(int argn, char *argc[], t_pushswap *dt);
