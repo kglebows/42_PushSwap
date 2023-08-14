@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 15:43:48 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:57:43 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include "gnl/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -50,6 +51,7 @@ int				ft_isnum(char *str);
 int				ft_swap(int first, int next);
 t_pushswap		*ft_ini(int argn, char *argc[]);
 void			ft_cleanup(t_pushswap *dt);
+
 
 //ini
 void			ft_ini_dtdata(t_pushswap *dt);
