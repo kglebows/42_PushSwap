@@ -6,32 +6,32 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 17:18:13 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 15:02:51 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:47:58 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int distance_(int id, int r, t_pushswap *dt)
+int	distance_(int id, int r, t_pushswap *dt)
 {
 	t_stack		*tmp;
 
-	tmp = dt->A;
+	tmp = dt->a;
 	while (tmp)
 	{
 		if (dt->top > id && tmp->id == dt->top)
-			break;
+			break ;
 		r++;
 		if (tmp->nxt && tmp->id < id && tmp->nxt->id > id)
-			break;
+			break ;
 		if (tmp->nxt && tmp->nxt->id == dt->top && tmp->id < id)
-			break;
+			break ;
 		tmp = tmp->nxt;
 	}
 	return (r);
 }
 
-int distance(int id, t_pushswap *dt)
+int	distance(int id, t_pushswap *dt)
 {
 	t_stack		*tmp;
 	int			r;
@@ -40,14 +40,14 @@ int distance(int id, t_pushswap *dt)
 
 	r = 0;
 	len = 1;
-	tmp = dt->A;
+	tmp = dt->a;
 	while (tmp->nxt)
 	{
 		len++;
 		tmp = tmp->nxt;
 	}
 	last = tmp->id;
-	if (dt->A->id > id && last < id)
+	if (dt->a->id > id && last < id)
 		return (0);
 	r = distance_(id, r, dt);
 	if (r <= len - r)
@@ -56,7 +56,7 @@ int distance(int id, t_pushswap *dt)
 		return ((len - r) * -1);
 }
 
-int sort_(int dist, t_pushswap *dt)
+int	sort_(int dist, t_pushswap *dt)
 {
 	if (dist == 0)
 		ft_stack_pa(dt);
@@ -81,26 +81,27 @@ int sort_(int dist, t_pushswap *dt)
 	return (dist);
 }
 
-int sort(int top, int bot, t_pushswap *dt)
+int	sort(int top, int bot, t_pushswap *dt)
 {
 	int		dist;
 
-	if (dt->B->id > bot)
+	if (dt->b->id > bot)
 		ft_stack_rb(dt);
 	else
 	{
-		dist = distance(dt->B->id, dt);
-		if (dt->B->nxt && dt->B->nxt->id <= bot && swap(dist, distance(dt->B->nxt->id, dt)))
+		dist = distance(dt->b->id, dt);
+		if (dt->b->nxt && dt->b->nxt->id <= bot
+			&& swap(dist, distance(dt->b->nxt->id, dt)))
 			ft_stack_sb(dt);
-		else 
+		else
 			dist = sort_(dist, dt);
-		if (dt->A->id < top)
-			top = dt->A->id;
+		if (dt->a->id < top)
+			top = dt->a->id;
 	}
 	return (top);
 }
 
-void ft_shortphase(t_pushswap *dt)
+void	ft_shortphase(t_pushswap *dt)
 {
 	int		top;
 	int		bot;
@@ -108,18 +109,18 @@ void ft_shortphase(t_pushswap *dt)
 	ft_phase1(dt);
 	bot = dt->len;
 	top = 1;
-	while (dt->B)
+	while (dt->b)
 		top = sort(top, bot, dt);
-	if (dt->A->id == 1)
+	if (dt->a->id == 1)
 		return ;
 	if (distance(0, dt) > 0)
 	{
-		while (dt->A->id != 1)
+		while (dt->a->id != 1)
 			ft_stack_ra(dt);
 	}
 	else
 	{
-		while (dt->A->id != 1)
+		while (dt->a->id != 1)
 			ft_stack_rra(dt);
 	}
 }

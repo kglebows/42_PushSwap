@@ -6,13 +6,13 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:45:55 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 14:18:22 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:43:33 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	long		n;
 	int			s;

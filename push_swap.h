@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 15:06:20 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:46:55 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ typedef struct s_pushswap
 	int					min;
 	int					ph1;
 	int					len;
-	int					Alen;
+	int					alen;
 	int					top;
 	int					cnt;
-	t_stack				*A;
-	t_stack				*B;
+	t_stack				*a;
+	t_stack				*b;
 }						t_pushswap;
 
 //sort
@@ -42,10 +42,10 @@ void			do_the_next_best_move(t_pushswap *dt);
 
 //utils
 t_stack			*ft_stacklast(t_stack *stack);
-void			mvB(t_pushswap *dt);
-void			sortB(t_pushswap *dt);
+void			mvb(t_pushswap *dt);
+void			sortb(t_pushswap *dt);
 void			ft_free(char **arr);
-t_pushswap		*ft_Error(void);
+t_pushswap		*ft_error(void);
 int				ft_isnum(char *str);
 int				swap(int first, int next);
 
@@ -58,8 +58,8 @@ void			ft_ini_mv(t_pushswap *dt);
 int				distance_b(int id, t_pushswap *dt);
 
 //input
-int				ft_ini_A(int argn, char *argc[], t_pushswap *dt);
-t_pushswap		*ft_ini_dt();
+int				ft_ini_a(int argn, char *argc[], t_pushswap *dt);
+t_pushswap		*ft_ini_dt(void);
 int				ft_ini_inputcheck(t_pushswap *dt);
 
 //phase1

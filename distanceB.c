@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:40:40 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 15:05:43 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:39:05 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	dist(int id, int low, int len, t_pushswap *dt)
 	int			biggest;
 
 	biggest = 1;
-	tmp = dt->B;
+	tmp = dt->b;
 	dis1 = dis(id, low, tmp);
 	while (tmp->id != low)
 	{
@@ -76,15 +76,15 @@ int	distance_b(int id, t_pushswap *dt)
 	int			low;
 	int			len;
 
-	if (!dt->B)
+	if (!dt->b)
 		return (0);
-	if (!dt->B->nxt && id > dt->B->id)
+	if (!dt->b->nxt && id > dt->b->id)
 		return (0);
-	if (!dt->B->nxt && id < dt->B->id)
+	if (!dt->b->nxt && id < dt->b->id)
 		return (1);
 	len = 0;
-	tmp = dt->B;
-	low = dt->B->id;
+	tmp = dt->b;
+	low = dt->b->id;
 	while (tmp)
 	{
 		len++;

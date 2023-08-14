@@ -6,17 +6,17 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:51:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:20:20 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:39:16 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_ini_dtdata(t_pushswap *dt)
+void	ft_ini_dtdata(t_pushswap *dt)
 {
 	t_stack		*tmp;
 
-	tmp = dt->A;
+	tmp = dt->a;
 	dt->len = 1;
 	dt->max = tmp->nb;
 	dt->min = tmp->nb;
@@ -29,16 +29,16 @@ void ft_ini_dtdata(t_pushswap *dt)
 		if (tmp->nb < dt->min)
 			dt->min = tmp->nb;
 	}
-	dt->Alen = dt->len;
+	dt->alen = dt->len;
 }
 
-int assign_sorted_id(t_stack *temp, t_pushswap *dt)
+int	assign_sorted_id(t_stack *temp, t_pushswap *dt)
 {
 	t_stack		*tmp;
 	int			index;
 
 	index = 1;
-	tmp = dt->A;
+	tmp = dt->a;
 	while (tmp->nxt != NULL)
 	{
 		if (tmp->nb < temp->nb)
@@ -50,11 +50,11 @@ int assign_sorted_id(t_stack *temp, t_pushswap *dt)
 	return (index);
 }
 
-void ft_ini_id(t_pushswap *dt)
+void	ft_ini_id(t_pushswap *dt)
 {
 	t_stack		*temp;
 
-	temp = dt->A;
+	temp = dt->a;
 	while (temp->nxt != NULL)
 	{
 		temp->id = assign_sorted_id(temp, dt);
@@ -63,7 +63,7 @@ void ft_ini_id(t_pushswap *dt)
 	temp->id = assign_sorted_id(temp, dt);
 }
 
-int find_longest_increasing_sequence(t_stack* node)
+int	find_longest_increasing_sequence(t_stack *node)
 {
 	t_stack		*current;
 	int			max_mv;
@@ -83,21 +83,21 @@ int find_longest_increasing_sequence(t_stack* node)
 		}
 		current = current->nxt;
 	}
-	return max_mv;
+	return (max_mv);
 }
 
-void ft_ini_mv(t_pushswap *dt)
+void	ft_ini_mv(t_pushswap *dt)
 {
 	t_stack		*current;
 	t_stack		*tmp;
 
-	current = dt->A;
-	while(current != NULL)
+	current = dt->a;
+	while (current != NULL)
 	{
 		tmp = current->nxt;
-		while(tmp != NULL)
+		while (tmp != NULL)
 		{
-			tmp->mv = 1; 
+			tmp->mv = 1;
 			tmp = tmp->nxt;
 		}
 		current->mv = find_longest_increasing_sequence(current);

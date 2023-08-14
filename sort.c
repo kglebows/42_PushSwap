@@ -6,32 +6,32 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:30:33 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/11 15:32:46 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:46:40 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int abs(int n)
+int	abs(int n)
 {
 	if (n < 0)
 		n *= -1;
 	return (n);
 }
 
-int best(int rB, int rA)
+int	best(int rb, int ra)
 {
-	if (abs(rA) > abs(rB))
-		return(abs(rA + rB) + abs(rA));
+	if (abs(ra) > abs(rb))
+		return (abs(ra + rb) + abs(ra));
 	else
-		return(abs(rA + rB) + abs(rB));
+		return (abs(ra + rb) + abs(rb));
 }
 
-void find_the_next_best_move(t_pushswap *dt)
+void	find_the_next_best_move(t_pushswap *dt)
 {
 	t_stack			*tmp;
 
-	tmp = dt->A;
+	tmp = dt->a;
 	dt->ph1 = tmp->mv;
 	dt->top = tmp->rt;
 	while (tmp)
@@ -45,12 +45,12 @@ void find_the_next_best_move(t_pushswap *dt)
 	}
 }
 
-void single_rotations(t_pushswap *dt)
+void	single_rotations(t_pushswap *dt)
 {
 	if (dt->ph1 > 0)
 	{
 		ft_stack_rb(dt);
-		if (!dt->B->nxt)
+		if (!dt->b->nxt)
 			ft_stack_pb(dt);
 		dt->ph1--;
 	}
@@ -71,7 +71,7 @@ void single_rotations(t_pushswap *dt)
 	}
 }
 
-void do_the_next_best_move(t_pushswap *dt)
+void	do_the_next_best_move(t_pushswap *dt)
 {
 	find_the_next_best_move(dt);
 	while (dt->ph1 != 0 || dt->top != 0)
@@ -92,5 +92,5 @@ void do_the_next_best_move(t_pushswap *dt)
 			single_rotations(dt);
 	}
 	ft_stack_pb(dt);
-	mvB(dt);
+	mvb(dt);
 }

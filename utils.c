@@ -6,13 +6,13 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 15:08:19 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:43:55 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_stacklast(t_stack *stack)
+t_stack	*ft_stacklast(t_stack *stack)
 {
 	t_stack		*last;
 
@@ -25,10 +25,11 @@ t_stack *ft_stacklast(t_stack *stack)
 	return (last);
 }
 
-void ft_free(char **arr)
+void	ft_free(char **arr)
 {
-	int i = 0;
+	int		i;
 
+	i = 0;
 	while (arr[i] != NULL)
 	{
 		free(arr[i]);
@@ -37,26 +38,26 @@ void ft_free(char **arr)
 	free(arr);
 }
 
-int mvB_(t_pushswap *dt, t_stack *tmp, int cnt, int rot)
+int	mvb_(t_pushswap *dt, t_stack *tmp, int cnt, int rot)
 {
-	if (cnt < dt->Alen / 2)
+	if (cnt < dt->alen / 2)
 	{
 		tmp->rt = rot * -1;
 		rot++;
 	}
-	if (cnt == dt->Alen / 2 && dt->Alen % 2 == 1)
+	if (cnt == dt->alen / 2 && dt->alen % 2 == 1)
 		rot++;
-	if (cnt == dt->Alen / 2)
+	if (cnt == dt->alen / 2)
 		cnt++;
-	if (cnt > dt->Alen / 2)
+	if (cnt > dt->alen / 2)
 	{
 		tmp->rt = rot;
 		rot--;
 	}
-	return(rot);
+	return (rot);
 }
 
-void mvB(t_pushswap *dt)
+void	mvb(t_pushswap *dt)
 {
 	t_stack			*tmp;
 	int				rot;
@@ -64,19 +65,19 @@ void mvB(t_pushswap *dt)
 
 	rot = 0;
 	cnt = 0;
-	tmp = dt->A;
+	tmp = dt->a;
 	while (tmp)
 	{
 		tmp->mv = distance_b(tmp->id, dt);
-		rot = mvB_(dt, tmp, cnt, rot);
-		if (cnt == dt->Alen / 2)
+		rot = mvb_(dt, tmp, cnt, rot);
+		if (cnt == dt->alen / 2)
 			cnt++;
 		cnt++;
 		tmp = tmp->nxt;
 	}
 }
 
-void sortB(t_pushswap *dt)
+void	sortb(t_pushswap *dt)
 {
 	int		turn;
 
@@ -94,6 +95,6 @@ void sortB(t_pushswap *dt)
 			turn++;
 		}
 	}
-	while (dt->B)
+	while (dt->b)
 		ft_stack_pa(dt);
 }

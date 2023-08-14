@@ -6,19 +6,19 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/12 15:02:49 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:43:43 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pushswap *ft_Error(void)
+t_pushswap	*ft_error(void)
 {
 	write(1, "Error\n", 6);
 	return (NULL);
 }
 
-int ft_isnum(char *str)
+int	ft_isnum(char *str)
 {
 	while (*str != '\0')
 	{
@@ -26,10 +26,10 @@ int ft_isnum(char *str)
 			return (0);
 		str++;
 	}
-	return(1);
+	return (1);
 }
 
-int swap(int first, int next)
+int	swap(int first, int next)
 {
 	if (first < 0)
 		first = first * -1;
