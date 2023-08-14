@@ -6,15 +6,16 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:18:43 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 14:36:00 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:43:21 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pushswap	*ft_error(void)
+t_pushswap	*ft_error(t_pushswap *dt)
 {
 	write(1, "Error\n", 6);
+	ft_cleanup(dt);
 	return (NULL);
 }
 
@@ -48,9 +49,9 @@ t_pushswap	*ft_ini(int argn, char *argc[])
 		return (NULL);
 	dt = ft_ini_dt();
 	if (!dt || ft_ini_a(argn, argc, dt) == 0)
-		return (ft_error());
+		return (ft_error(dt));
 	if (ft_ini_inputcheck(dt) == 0)
-		return (ft_error());
+		return (ft_error(dt));
 	ft_ini_dtdata(dt);
 	ft_ini_id(dt);
 	if (dt->len < 26)

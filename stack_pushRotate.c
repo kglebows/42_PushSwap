@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:45:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:46:25 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:37:11 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	ft_stack_pb(t_pushswap *dt)
 {
 	t_stack			*tmp;
-	t_stack			*last;
 
 	tmp = dt->a->nxt;
 	dt->a->nxt = dt->b;
-	last = ft_stacklast(dt->b);
 	dt->b = dt->a;
 	dt->a = tmp;
 	dt->cnt++;
@@ -30,11 +28,9 @@ void	ft_stack_pb(t_pushswap *dt)
 void	ft_stack_pa(t_pushswap *dt)
 {
 	t_stack			*tmp;
-	t_stack			*last;
 
 	tmp = dt->b->nxt;
 	dt->b->nxt = dt->a;
-	last = ft_stacklast(dt->a);
 	dt->a = dt->b;
 	dt->b = tmp;
 	if (dt->a->id < dt->top)

@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:38:47 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:46:27 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_ini_a(int argn, char *argc[], t_pushswap *dt)
 		{
 			i[2] = ft_atoi(arr[i[1]]);
 			if (!ft_isnum(arr[i[1]]) || i[2] > 2147483647 || i[2] < -2147483648)
-				return (0);
+				return (ft_free(arr), 0);
 			if (!a)
 				a = ft_stack_ini((int) i[2], dt);
 			else

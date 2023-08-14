@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:11:47 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 13:38:18 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:54:17 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,19 @@ void	ft_phase1(t_pushswap *dt)
 	if (dt->b && dt->b->id >= (dt->len / 2))
 		ft_stack_rb(dt);
 	find_top(dt);
+}
+
+void	ft_solve(t_pushswap *dt)
+{
+	if (dt->len > 25)
+	{
+		ft_stack_pb(dt);
+		ft_stack_pb(dt);
+		ft_mvb(dt);
+		while (dt->a)
+			ft_do_the_next_best_move(dt);
+		ft_sortb(dt);
+	}
+	else
+		ft_shortphase(dt);
 }

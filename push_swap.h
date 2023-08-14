@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:12:23 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/14 14:39:59 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:43:48 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_stack			*ft_stacklast(t_stack *stack);
 void			ft_mvb(t_pushswap *dt);
 void			ft_sortb(t_pushswap *dt);
 void			ft_free(char **arr);
-t_pushswap		*ft_error(void);
+t_pushswap		*ft_error(t_pushswap *dt);
 int				ft_isnum(char *str);
 int				ft_swap(int first, int next);
 t_pushswap		*ft_ini(int argn, char *argc[]);
@@ -66,6 +66,7 @@ int				ft_ini_inputcheck(t_pushswap *dt);
 
 //phase1
 void			ft_phase1(t_pushswap *dt);
+void			ft_solve(t_pushswap *dt);
 
 //phase2
 void			ft_shortphase(t_pushswap *dt);
