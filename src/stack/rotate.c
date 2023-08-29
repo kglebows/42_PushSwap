@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:32:46 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/16 19:01:09 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:25:24 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_stack_ra(int mute, t_pushswap *dt)
 	t_stack			*tmp;
 	t_stack			*last;
 
-	if (dt->a->nxt)
+	if (dt->a && dt->a->nxt)
 	{
 		tmp = dt->a;
 		dt->a = dt->a->nxt;
@@ -35,7 +35,7 @@ void	ft_stack_rb(int mute, t_pushswap *dt)
 	t_stack			*tmp;
 	t_stack			*last;
 
-	if (dt->b->nxt)
+	if (dt->b && dt->b->nxt)
 	{
 		tmp = dt->b;
 		dt->b = dt->b->nxt;
@@ -53,7 +53,7 @@ void	ft_stack_rr(int mute, t_pushswap *dt)
 	t_stack			*tmp;
 	t_stack			*last;
 
-	if (dt->a->nxt)
+	if (dt->a && dt->a->nxt)
 	{
 		tmp = dt->a;
 		dt->a = dt->a->nxt;
@@ -61,7 +61,7 @@ void	ft_stack_rr(int mute, t_pushswap *dt)
 		last->nxt = tmp;
 		tmp->nxt = NULL;
 	}
-	if (dt->b->nxt)
+	if (dt->b && dt->b->nxt)
 	{
 		tmp = dt->b;
 		dt->b = dt->b->nxt;

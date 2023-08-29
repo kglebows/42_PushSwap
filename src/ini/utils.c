@@ -6,7 +6,7 @@
 /*   By: kglebows <kglebows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 18:42:58 by kglebows          #+#    #+#             */
-/*   Updated: 2023/08/16 16:17:23 by kglebows         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:28:22 by kglebows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	ft_ini_inputcheck(t_pushswap *dt)
 	t_stack		*tmp;
 	int			check;
 
+	if (!dt->a)
+		return (0);
 	temp = dt->a;
 	while (temp->nxt != NULL)
 	{
